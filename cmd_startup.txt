@@ -1,0 +1,22 @@
+Per eseguire lo script tramite un CMD all'avvio, puoi seguire questi passaggi:
+
+Apri il blocco note o un altro editor di testo e incolla lo script al suo interno.
+Salva il file con un nome significativo seguito dall'estensione ".ps1", ad esempio "EstraiServiziDisabilitati.ps1".
+Sposta il file salvato nella cartella desiderata. Ad esempio, puoi creare una cartella chiamata "Scripts" nel percorso "C:\Windows" e spostare il file all'interno.
+Apri il blocco note o un altro editor di testo e crea un nuovo file di testo.
+Incolla il seguente comando nel file di testo:
+mathematica
+Copy code
+powershell.exe -ExecutionPolicy Bypass -File C:\Windows\Scripts\EstraiServiziDisabilitati.ps1
+Assicurati di sostituire "C:\Windows\Scripts\EstraiServiziDisabilitati.ps1" con il percorso completo del file dello script effettivo.
+6. Salva il file con l'estensione ".bat" in una posizione comoda, ad esempio sul desktop, e assegnagli un nome significativo, come "EseguiEstraiServiziDisabilitati.bat".
+
+Ora, puoi avviare automaticamente lo script tramite il CMD all'avvio del sistema operativo eseguendo il file ".bat". Per farlo:
+
+Premi "Windows + R" per aprire la finestra di dialogo "Esegui".
+Digita "shell:startup" e premi Invio. Si aprirà la cartella di avvio automatico.
+Sposta il file ".bat" che hai creato nella cartella di avvio automatico.
+Riavvia il computer.
+Dopo il riavvio, il file ".bat" verrà eseguito automaticamente e avvierà lo script PowerShell per l'estrazione dei servizi disabilitati.
+
+Assicurati di aver configurato correttamente il percorso dello script all'interno del file ".bat" in base alla tua configurazione.

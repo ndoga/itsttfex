@@ -1,0 +1,36 @@
+Script di Estrazione dei Servizi Disabilitati
+
+Scopo
+Lo scopo di questo script PowerShell è quello di estrarre l'elenco dei servizi disabilitati sulla postazione e salvarlo in un file CSV. Inoltre, il script crea un file di log contenente la data e l'ora di esecuzione, insieme al numero totale di servizi disabilitati.
+
+Descrizione
+Questo script utilizza il cmdlet Get-WmiObject per ottenere un elenco di tutti i servizi sulla postazione e li filtra in base alla proprietà StartMode, selezionando solo i servizi con lo stato "Disabled" (disabilitato). L'elenco dei servizi disabilitati viene quindi salvato in un file CSV specificato dalla variabile $CSVPath.
+
+Se il file CSV esiste già, viene spostato nella cartella di archivio predefinita C:\Windows\Temp\Archivio e rinominato con un timestamp per evitare sovrascritture. Successivamente, l'elenco aggiornato dei servizi disabilitati viene salvato nel file CSV specificato.
+
+Inoltre, lo script genera un file di log specificato dalla variabile $LogPath che registra la data e l'ora di esecuzione dello script, insieme al numero totale di servizi disabilitati.
+
+Note
+L'esecuzione dello script richiede privilegi amministrativi per accedere alle informazioni dei servizi.
+Le variabili $CSVPath e $LogPath possono essere modificate per specificare i percorsi dei file desiderati.
+Lo script può essere avviato automaticamente tramite il CMD all'avvio.
+
+Esempio di utilizzo
+powershell
+.\EstraiServiziDisabilitati.ps1
+Parametri
+Nessun parametro è richiesto per l'esecuzione dello script.
+
+Variabili
+$CSVPath: Specifica il percorso del file CSV che conterrà l'elenco dei servizi disabilitati. Il percorso predefinito è "C:\Windows\Temp\servizi_disabilitati.csv".
+$LogPath: Specifica il percorso del file di log che conterrà la data e l'ora di esecuzione dello script insieme al numero totale di servizi disabilitati. Il percorso predefinito è "C:\Windows\Temp\serviziTTF.log".
+
+Flusso di esecuzione
+Il comando Get-WmiObject viene utilizzato per ottenere un elenco di tutti i servizi sulla postazione.
+I servizi vengono filtrati utilizzando il cmdlet Where-Object per selezionare solo i servizi con StartMode impostato su "Disabled" (disabilitato).
+Se vengono trovati servizi disabilitati, viene eseguito il seguente processo:
+Se il file CSV specificato da $CSVPath esiste già, viene spostato nella cartella di archivio predefinita C:\Windows\Temp\Archivio e rinominato con un timestamp per evitare sovrascritture.
+L'elenco aggiornato dei servizi disabilitati viene quindi salvato nel file CSV specificato.
+Nel file di log specificato da $LogPath, viene registrata la data e l'ora di esecuzione dello script insieme al numero totale di servizi disabilitati.
+Se non vengono trovati servizi disabilitati, viene visualizzato un messaggio appropriato.
+In caso di errore durante l'esecuzione dello script, viene gestito l'errore e viene visualizzato un messaggio di errore appropriato.
